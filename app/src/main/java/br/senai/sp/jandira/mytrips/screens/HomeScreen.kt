@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -33,7 +35,7 @@ fun HomeScreen(modifier: Modifier = Modifier){
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.Blue)
+            .background(color = Color.Gray)
 
     ){         Card(
         modifier = Modifier
@@ -63,32 +65,31 @@ fun HomeScreen(modifier: Modifier = Modifier){
         ) {}
         Column (
             modifier = Modifier
-                .fillMaxSize()
-                .background(color = Color.Red),
+                .fillMaxSize(),
             verticalArrangement = Arrangement.Center
         ){ Column (
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = Color.White)
-                .padding(10.dp)
+                .padding(20.dp)
         ) {
             Text(
                 text = stringResource(
                     R.string.login
                 ),
-                color = Color.Black,
+                color = Color.White,
                 fontSize = 40.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
             )
             Text(
                 text = stringResource(
-                    R.string.account
+                    R.string.sign_continue
                 ),
-                color = Color.Gray,
+                color = Color.DarkGray,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
+                    .padding(bottom = 50.dp)
             )
             Column (
                 verticalArrangement = Arrangement.SpaceBetween,
@@ -101,8 +102,7 @@ fun HomeScreen(modifier: Modifier = Modifier){
                     fontWeight = FontWeight.Bold),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 10.dp)
-                    .background(color = Color.Black),
+                    .padding(top = 10.dp),
                 shape = RoundedCornerShape(15.dp),
             )
             TextField(
@@ -114,14 +114,52 @@ fun HomeScreen(modifier: Modifier = Modifier){
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 10.dp)
-                    .padding(bottom = 45.dp)
-                    .background(color = Color.Black),
+                    .padding(bottom = 45.dp),
                 shape = RoundedCornerShape(15.dp),
 
-            )}
-            Button() { }
+               )
+            }
+            Button(
+                onClick = {},
+                modifier = Modifier
+                    .padding(15.dp)
+                    .height(50.dp)
+                    .align(Alignment.End),
+                shape = RoundedCornerShape(15.dp),
+                colors = ButtonDefaults.buttonColors(
+                    Color.White
+            )
+            ) {
+                Text(
+                    text = stringResource(
+                        R.string.sign_up
+                    ),
+                    fontSize = 22.sp,
+                    color = Color.Black
+                )
+            }
+            Row (
+                modifier = Modifier
+                    .padding(top = 5.dp)
+                    .align(Alignment.End)
+            ) {
+                    Text(
+                    text = stringResource(
+                        R.string.account
+                    ),
+                        color = Color.White
+                )
+                Text(
+                    text = stringResource(
+                        R.string.sign_up,
+                    ),
+                    color = Color.DarkGray,
+                    fontWeight = FontWeight.Bold
 
-        }}
+                )
+            }
+          }
+        }
     }
 }
 @Preview(showSystemUi = true)
